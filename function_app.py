@@ -3,7 +3,7 @@ from eurostat import getEurostatData
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ADMIN)
 
-@app.function_name(name="eurostat_function")
+@app.function_name(name="eurostat_function") #Nombre interno de la función en Azure
 @app.route(route="eurostat")
 def eurostat(req: func.HttpRequest) -> func.HttpResponse:
     try:
