@@ -461,8 +461,8 @@ def getEurostatData(req: func.HttpRequest) -> func.HttpResponse:
             df.to_excel(excel_buffer, index=False)
             excel_buffer.seek(0)
 
-            # blob_path = f"EuroStat/Eurostat_{request_name}.xlsx"
-            blob_path = f"test/Eurostat_{request_name}.xlsx"
+            blob_path = f"EuroStat/Eurostat_{request_name}.xlsx"
+            # blob_path = f"test/Eurostat_{request_name}.xlsx"
             blob_client = blob_service_client.get_blob_client(container=BLOB_CONTAINER_NAME, blob=blob_path)
             blob_client.upload_blob(excel_buffer, overwrite=True)
 
