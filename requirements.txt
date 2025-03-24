@@ -6,3 +6,4 @@ azure-functions
 pandas
 requests
 azure-storage-blob
+openpyxl
