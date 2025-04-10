@@ -1,9 +1,14 @@
 import azure.functions as func
 from eurostat import getEurostatData
-import datetime
 import logging
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ADMIN)
+
+@app.function_name(name="eurostat_function") #Nombre interno de la función en Azure
+@app.route(route="eurostat")
+def eurostat_http_trigger(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info("Ejecutando Eurostat_data vía HttpTrigger...")
+    return eurostat_data()
 
 def eurostat_data() -> func.HttpResponse:
     try:
